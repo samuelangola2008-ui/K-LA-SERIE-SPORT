@@ -1,3 +1,6 @@
+ karennn old
+
+
 'use strict';
 
 /* ==========================================================
@@ -41,7 +44,20 @@
   });
 
   /* -------- Original catalog products -------- */
-  const CATALOG_PRODUCTS = [];
+  const CATALOG_PRODUCTS = [
+    { id:'ks-001', name:'Air Flow Rosa',      cat:['mujer','nuevo'],   price:189900, oldPrice:239900, sizes:[35,36,37,38,39],       color:['#FF2D87','#E10F35'] },
+    { id:'ks-002', name:'Urban Blaze Negro',  cat:['hombre','vendido'],price:219900, oldPrice:null,   sizes:[38,39,40,41,42,43],    color:['#1a1a1e','#E10F35'] },
+    { id:'ks-003', name:'K Runner Fucsia',    cat:['unisex','nuevo'],  price:199900, oldPrice:null,   sizes:[36,37,38,39,40,41],    color:['#FF2D87','#ffffff'] },
+    { id:'ks-004', name:'Street Flow Blanco', cat:['unisex','oferta'], price:159900, oldPrice:209900, sizes:[37,38,39,40,41],       color:['#ffffff','#E10F35'] },
+    { id:'ks-005', name:'Combat Grip Gris',   cat:['hombre'],          price:229900, oldPrice:null,   sizes:[40,41,42,43,44],       color:['#3a3a42','#FF2D87'] },
+    { id:'ks-006', name:'Diamond Sport Rosa', cat:['mujer','vendido'], price:209900, oldPrice:249900, sizes:[35,36,37,38],          color:['#FF2D87','#0A0A0C'] },
+    { id:'ks-007', name:'Flow Attitude Rojo', cat:['hombre','nuevo'],  price:239900, oldPrice:null,   sizes:[39,40,41,42,43],       color:['#E10F35','#0A0A0C'] },
+    { id:'ks-008', name:'City Step Unisex',   cat:['unisex'],          price:179900, oldPrice:null,   sizes:[36,37,38,39,40,41,42], color:['#0A0A0C','#FF2D87'] },
+    { id:'ks-009', name:'Night Runner Negro', cat:['hombre','oferta'], price:189900, oldPrice:229900, sizes:[40,41,42,43],          color:['#0A0A0C','#E10F35'] },
+    { id:'ks-010', name:'Bloom Sneaker Blanco',cat:['mujer','nuevo'],  price:199900, oldPrice:null,   sizes:[35,36,37,38,39],       color:['#ffffff','#FF2D87'] },
+    { id:'ks-011', name:'K Sport Classic',    cat:['unisex','vendido'],price:169900, oldPrice:null,   sizes:[36,37,38,39,40,41],    color:['#17171b','#ffffff'] },
+    { id:'ks-012', name:'Sunset Flow Fucsia', cat:['mujer','oferta'],  price:174900, oldPrice:219900, sizes:[35,36,37,38,39],       color:['#FF2D87','#E10F35'] }
+  ];
 
   /* All products merged */
   const PRODUCTS = [...CATALOG_PRODUCTS, ...GALLERY_PRODUCTS];
