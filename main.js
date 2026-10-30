@@ -708,7 +708,8 @@
   }, { threshold:0.5 });
   statEls.forEach(el => statsObserver.observe(el));
 
-  document.getElementById('year').textContent = String(new Date().getFullYear());
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   renderGrid();
   renderCart();
   renderGallery();
