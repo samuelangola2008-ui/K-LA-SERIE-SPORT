@@ -9,7 +9,7 @@
    ========================================================== */
 
 (function () {
-  const WHATSAPP_NUMBER = '573165524018';
+  const WHATSAPP_NUMBER = '573116775655';
 
   /* -------- Gallery product names (40 items) -------- */
   const GALLERY_NAMES = [
@@ -70,10 +70,9 @@
   const selectedSizes = {};
   let cart = loadCart();
 
-  /* -------- Tracking selected sizes per product for gallery too -------- */
+
   const gallerySelectedSizes = {};
 
-  /* -------- Cart persistence -------- */
   function loadCart() {
     try {
       const raw = window.localStorage.getItem('ksport_cart');
@@ -92,9 +91,7 @@
     try { window.localStorage.setItem('ksport_cart', JSON.stringify(cart)); } catch(e) {}
   }
 
-  /* ============================================================
-     CATALOG SECTION (top, original behavior)
-     ============================================================ */
+  
   const grid = document.getElementById('productGrid');
   const noResults = document.getElementById('noResults');
 
@@ -108,7 +105,7 @@
   }
 
   function renderGrid() {
-    /* Only catalog products (non-gallery) in the top catalog section */
+   
     const list = CATALOG_PRODUCTS.filter(p => matchesFilter(p) && matchesSearch(p));
     grid.textContent = '';
     noResults.hidden = list.length > 0;
@@ -208,9 +205,7 @@
     renderGrid();
   });
 
-  /* ============================================================
-     GALLERY E-COMMERCE SECTION
-     ============================================================ */
+ 
   const galleryGrid = document.getElementById('galleryGrid');
   const galleryNoResults = document.getElementById('galleryNoResults');
   const galleryCount = document.getElementById('galleryCount');
@@ -551,9 +546,6 @@
     cart = []; saveCart(); renderCart(); showToast('Carrito vaciado');
   });
 
-  /* ============================================================
-     CHECKOUT MODAL
-     ============================================================ */
   const checkoutModal = document.getElementById('checkoutModal');
   const checkoutClose = document.getElementById('checkoutClose');
   const checkoutForm = document.getElementById('checkoutForm');
@@ -646,9 +638,6 @@
     showToast('Pedido enviado por WhatsApp 🔥');
   });
 
-  /* ============================================================
-     TOAST
-     ============================================================ */
   let toastTimer = null;
   function showToast(text) {
     let toast = document.querySelector('.toast');
@@ -660,9 +649,6 @@
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
   }
 
-  /* ============================================================
-     NAVBAR
-     ============================================================ */
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -685,9 +671,6 @@
     document.getElementById('catalogo').scrollIntoView({ behavior:'smooth' });
   });
 
-  /* ============================================================
-     REVEAL + COUNTERS
-     ============================================================ */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const revealObserver = new IntersectionObserver((entries) => {
@@ -725,9 +708,6 @@
   }, { threshold:0.5 });
   statEls.forEach(el => statsObserver.observe(el));
 
-  /* ============================================================
-     INIT
-     ============================================================ */
   document.getElementById('year').textContent = String(new Date().getFullYear());
   renderGrid();
   renderCart();

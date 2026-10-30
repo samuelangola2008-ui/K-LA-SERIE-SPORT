@@ -1,11 +1,5 @@
 'use strict';
 
-/* =====================================================================
-   server.js - K' LA SERIE SPORT
-   Ubicación:  <raíz>/miservidor/server.js
-   Estáticos:  <raíz>/  (index.html, CSS, JS, imágenes, 404.html...)
-   Uso:        cd miservidor  →  node server.js
-   ===================================================================== */
 
 require('dotenv').config({ quiet: true });
 
@@ -22,11 +16,11 @@ const PORT = Number(process.env.PORT) || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isProd = NODE_ENV === 'production';
 
-// Carpeta raíz del sitio (un nivel arriba de miservidor/)
+
 const ROOT_DIR = path.resolve(__dirname, '..');
 const INDEX_FILE = path.join(ROOT_DIR, 'index.html');
 
-// ---------- 1) Seguridad y rendimiento ----------
+
 app.disable('x-powered-by');
 
 app.use(
@@ -54,12 +48,10 @@ app.use(
 app.use(compression());
 app.use(express.json({ limit: '10kb' }));
 
-// ---------- 2) Proteger el código del servidor ----------
-// Como se sirve la carpeta raíz (../), miservidor/ quedaría público
-// (server.js, package.json, .env, node_modules). Lo bloqueamos.
+
 app.use(['/miservidor', '/node_modules'], (req, res) => send404(req, res));
 
-// ---------- 3) Archivos estáticos (CSS, JS, imágenes) ----------
+
 app.use(
   express.static(ROOT_DIR, {
     index: false,          // la ruta "/" la maneja app.get('/') más abajo
@@ -69,7 +61,7 @@ app.use(
   })
 );
 
-// ---------- 4) Rutas ----------
+-
 app.get('/', (req, res) => {
   res.sendFile(INDEX_FILE);
 });
@@ -78,10 +70,6 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() });
 });
 
-// Aquí irán tus rutas de API, por ejemplo:
-// app.use('/api/products', require('./routes/products'));
-
-// ---------- 5) Páginas de error ----------
 function sendErrorPage(res, status, fileName, fallbackText) {
   const file = path.join(ROOT_DIR, fileName);
   res.status(status);
@@ -97,10 +85,10 @@ function send404(req, res) {
   return sendErrorPage(res, 404, '404.html', '404 - Página no encontrada');
 }
 
-// 404: ningún recurso coincidió
+
 app.use(send404);
 
-// 500: manejo centralizado de errores (Express 5 captura también los async)
+
 app.use((err, req, res, next) => {
   console.error(err);
   if (res.headersSent) return next(err);
