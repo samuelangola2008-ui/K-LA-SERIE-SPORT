@@ -1,17 +1,10 @@
 'use strict';
 
-/* ==========================================================
-   K SPORT — main.js (v2)
-   - Gallery products integrated as full e-commerce products
-   - All 40 gallery images at $100.000 COP
-   - Shared cart across catalog + gallery
-   - Product detail modal for all products
-   ========================================================== */
+
 
 (function () {
   const WHATSAPP_NUMBER = '573116775655';
 
-  /* -------- Gallery product names (40 items) -------- */
   const GALLERY_NAMES = [
     'Alexander McQueen','Nike Air Max Tailwind V','Nike Air Max 90 (Black colorway)','Nike Air Max 90 (Black colorway)','Nike Calm Mule',
     ': Nike Air Force 1 Low','Adidas Superstar','Nike Kobe','Off-White "Out of Office"','Nike Court Vision Low',
@@ -25,7 +18,7 @@
 
   const GALLERY_SIZES = [35,36,37,38,39,40,41,42,43];
 
-  /* -------- Build gallery product entries -------- */
+
   const GALLERY_PRODUCTS = Array.from({ length: 40 }, (_, i) => {
     const n = i + 1;
     return {
@@ -40,15 +33,14 @@
     };
   });
 
-  /* -------- Original catalog products -------- */
+  
   const CATALOG_PRODUCTS = [];
 
-  /* All products merged */
+
   const PRODUCTS = [...CATALOG_PRODUCTS, ...GALLERY_PRODUCTS];
 
   const currencyFmt = new Intl.NumberFormat('es-CO', { style:'currency', currency:'COP', maximumFractionDigits:0 });
 
-  /* -------- SVG shoe placeholder (for catalog products) -------- */
   function shoeSVG(colorA, colorB, uid) {
     return `<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sneaker">
       <defs>
@@ -64,7 +56,7 @@
     </svg>`;
   }
 
-  /* -------- State -------- */
+
   let activeFilter = 'todos';
   let searchTerm = '';
   const selectedSizes = {};
@@ -189,7 +181,7 @@
     });
   });
 
-  /* -------- Search -------- */
+
   const searchToggle = document.getElementById('searchToggle');
   const searchBar = document.getElementById('searchBar');
   const searchInput = document.getElementById('searchInput');
@@ -232,7 +224,7 @@
       const card = document.createElement('article');
       card.className = 'gallery-product-card';
 
-      /* Media */
+  
       const mediaWrap = document.createElement('div');
       mediaWrap.className = 'gpc-media';
 
@@ -247,7 +239,6 @@
         mediaWrap.innerHTML = shoeSVG(p.color[0], p.color[1], p.id + '-gal');
       }
 
-      /* Overlay quick-add */
       const overlay = document.createElement('div');
       overlay.className = 'gpc-overlay';
       const quickBtn = document.createElement('button');
@@ -257,7 +248,7 @@
       overlay.appendChild(quickBtn);
       mediaWrap.appendChild(overlay);
 
-      /* Body */
+     
       const body = document.createElement('div'); body.className = 'gpc-body';
       const name = document.createElement('p'); name.className = 'gpc-name'; name.textContent = p.name;
 
@@ -283,7 +274,7 @@
     });
   }
 
-  /* Gallery filter chips */
+ 
   document.querySelectorAll('.gallery-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       document.querySelectorAll('.gallery-chip').forEach(c => c.classList.remove('active'));
@@ -338,7 +329,7 @@
       priceRow.appendChild(oldEl);
     }
 
-    /* Size selector */
+
     const sizeLabel = document.createElement('p'); sizeLabel.className = 'pm-label'; sizeLabel.textContent = 'Selecciona tu talla:';
     const sizeGrid = document.createElement('div'); sizeGrid.className = 'pm-sizes';
 
@@ -359,7 +350,7 @@
       sizeGrid.appendChild(btn);
     });
 
-    /* Quantity */
+   
     const qtyLabel = document.createElement('p'); qtyLabel.className = 'pm-label'; qtyLabel.textContent = 'Cantidad:';
     const qtyWrap = document.createElement('div'); qtyWrap.className = 'pm-qty-wrap';
     let qty = 1;
@@ -418,9 +409,6 @@
 
   if (productModalClose) productModalClose.addEventListener('click', closeProductModal);
 
-  /* ============================================================
-     CART LOGIC
-     ============================================================ */
   const cartToggle = document.getElementById('cartToggle');
   const cartDrawer = document.getElementById('cartDrawer');
   const cartClose = document.getElementById('cartClose');
