@@ -24,30 +24,23 @@ Aplicación de lista de tareas hecha con **React**, **TypeScript** y **Vite**. P
 - [Node.js](https://nodejs.org/) (versión LTS recomendada)
 - npm (incluido con Node.js)
 
-## Instalación y uso
+## Uso
 
-1. Crea el proyecto con Vite (si aún no lo tienes):
+1. Entra a la carpeta del proyecto:
 
    ```bash
-   npm create vite@latest mi-app -- --template react-ts
    cd mi-app
    ```
 
-2. Instala las dependencias:
-
-   ```bash
-   npm install
-   ```
-
-3. Reemplaza el contenido de `src/App.tsx` y `src/App.css` con los archivos de este proyecto.
-
-4. Inicia el servidor de desarrollo:
+2. Inicia el servidor de desarrollo:
 
    ```bash
    npm run dev
    ```
 
-5. Abre en el navegador la dirección que aparece en la terminal (normalmente `http://localhost:5173`).
+3. Abre en el navegador la dirección que aparece en la terminal (normalmente `http://localhost:5173`).
+
+> Si es la primera vez que lo abres o clonaste el proyecto, ejecuta antes `npm install` para instalar las dependencias.
 
 ## Scripts disponibles
 
