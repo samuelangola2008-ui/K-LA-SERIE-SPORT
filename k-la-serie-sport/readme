@@ -1,0 +1,83 @@
+# Lista de tareas en React
+
+Aplicación de lista de tareas hecha con **React**, **TypeScript** y **Vite**. Permite agregar, completar, eliminar y filtrar tareas, y guarda los datos en el navegador para que no se pierdan al recargar la página.
+
+## Características
+
+- Agregar tareas desde un formulario (Enter o botón "Agregar").
+- Marcar tareas como hechas (se tachan).
+- Eliminar una tarea o borrar todas las completadas a la vez.
+- Filtrar por **Todas**, **Pendientes** o **Hechas**.
+- Contador de tareas pendientes y hechas.
+- Guardado automático en `localStorage`.
+- Modo claro y oscuro automático según el sistema.
+- Diseño adaptable a pantallas pequeñas.
+
+## Tecnologías
+
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+
+## Requisitos
+
+- [Node.js](https://nodejs.org/) (versión LTS recomendada)
+- npm (incluido con Node.js)
+
+## Instalación y uso
+
+1. Crea el proyecto con Vite (si aún no lo tienes):
+
+   ```bash
+   npm create vite@latest mi-app -- --template react-ts
+   cd mi-app
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+3. Reemplaza el contenido de `src/App.tsx` y `src/App.css` con los archivos de este proyecto.
+
+4. Inicia el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Abre en el navegador la dirección que aparece en la terminal (normalmente `http://localhost:5173`).
+
+## Scripts disponibles
+
+| Comando           | Descripción                                   |
+| ----------------- | --------------------------------------------- |
+| `npm run dev`     | Inicia el servidor de desarrollo              |
+| `npm run build`   | Genera la versión de producción en `dist/`    |
+| `npm run preview` | Previsualiza la versión de producción         |
+
+## Estructura
+
+```
+src/
+├── App.tsx    # Componente principal con la lógica de la lista
+├── App.css    # Estilos (variables de color, modo oscuro, componentes)
+└── main.tsx   # Punto de entrada de la aplicación
+```
+
+## Conceptos de React que se usan
+
+- `useState` para manejar las tareas, el texto del input y el filtro activo.
+- `useEffect` para guardar las tareas en `localStorage` cuando cambian.
+- Estado inicial con función (`useState(loadTasks)`), que lee `localStorage` solo al arrancar.
+- Tipos de TypeScript (`Task` y `Filter`).
+- Actualizaciones inmutables del estado con `map` y `filter`.
+- Listas con `key` único por elemento.
+
+## Posibles mejoras
+
+- Editar el texto de una tarea existente.
+- Agregar fecha límite o prioridad.
+- Reordenar tareas arrastrando y soltando.
+- Sincronizar las tareas con una API o base de datos.
