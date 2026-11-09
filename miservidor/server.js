@@ -1,3 +1,4 @@
+
 'use strict';
 
 
@@ -112,4 +113,4 @@ function shutdown(signal) {
   setTimeout(() => process.exit(1), 10000).unref(); // forzar si tarda demasiado
 }
 process.on('SIGINT', () => shutdown('SIGINT'));
-process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGTERM', () => shutdown('SIGTERM')); 
